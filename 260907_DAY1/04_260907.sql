@@ -69,3 +69,11 @@ WHERE name LIKE "R%"; # % => 0개 혹은 그 이상의 존재 정의 # R로만 �
 
 SELECT * FROM students
 WHERE name LIKE "%R%"; # 이름에 R만 들어가면 됨! 
+
+USE sakila;
+
+SHOW TABLES;
+
+# 미국 DVD 영화 렌탈 서비스 진행했던 실제 기업의 DB를 벤치마킹해서 만들어 놓은 예제 샘플 데이터
+
+# 현재 우리가 해당 기업, sakila에 신규 입사한 마케터라면 ?!
