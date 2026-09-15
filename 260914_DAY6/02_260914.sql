@@ -265,15 +265,14 @@ WHERE F.replacement_cost >= 20;
 # 그것보다 긴 설명 문자보다 긴 영화들의 제목만 조회하기
 # LENGTH() : 특정 컬럼 안에 입력되어 있는 문자열의 길이를 조회 추출하는 함수
 
-SELECT * FROM film_text LIMIT 10;
-# film_id, title, description
-SELECT * FROM film LIMIT 10;
-# film_id, title, description, rating
+USE sakila;
 
-SELECT
-	title, 
-    LENGTH(description)
+SELECT 
+	title 
 FROM film
-WHERE rating = "PG-13";
-
- 
+WHERE LENGTH(description) > (
+		SELECT
+			AVG(LENGTH(description))
+        FROM film
+        WHERE rating = "PG-13"
+);
